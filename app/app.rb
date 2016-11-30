@@ -25,12 +25,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/tags/:name' do
-    puts params[:name]
     tag = Tag.first(name: params[:name])#PROBLEM
     @links = tag ? tag.links : []
-    puts tag
-    puts 'HERE!!!!!!!!!!!!!!!!'
-    puts @links
     erb :'links/index'
   end
 
