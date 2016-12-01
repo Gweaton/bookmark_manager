@@ -13,7 +13,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/links/new' do
-    erb :new
+    erb :'/links/new'
   end
 
   post '/links' do
@@ -25,7 +25,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/tags/:name' do
-    tag = Tag.first(name: params[:name])#PROBLEM
+    tag = Tag.first(name: params[:name])
     @links = tag ? tag.links : []
     erb :'links/index'
   end
